@@ -2,11 +2,11 @@
 
 #[openbrush::contract]
 pub mod my_flipper_guard {
-    use flipper::traits::flipper::*;
-    use ink::{codegen::Env, env::CallFlags};
-    use openbrush::traits::Storage;
-
     use ink::primitives::Key;
+    use openbrush::{
+        contracts::reentrancy_guard::{self, non_reentrant, ReentrancyGuardError},
+        traits::Storage,
+    };
 
     #[ink(storage)]
     #[derive(Default, Storage)]
@@ -42,6 +42,25 @@ pub mod my_flipper_guard {
                 _ => {}
             };
         }
+
+        #[ink(message)]
+        pub fn get_value(&self) -> u32 {
+            self.value
+        }
+
+        #[ink(message)]
+        pub fn increment_reentrant(&mut self) {
+            self.check_storage();
+            self.value += 1;
+        }
+
+        #[ink(message)]
+        #[openbrush::modifiers(non_reentrant)]
+        pub fn increment(&mut self) -> Result<(), ReentrancyGuardError> {
+            self.check_storage();
+            self.value += 1;
+            Ok(())
+        }
     }
 
     #[ink(event)]
@@ -52,50 +71,5 @@ pub mod my_flipper_guard {
     #[ink(event)]
     pub struct StorageDecodedCorrectly {
         value: u32,
-    }
-
-    impl Flipper for MyFlipper {
-        #[ink(message)]
-        fn get_value(&self) -> u32 {
-            self.value
-        }
-
-        
-
-        #[ink(message)]
-        fn increment_recursive_reentrant(&mut self, num: u32) {
-            self.check_storage();
-
-            if num == 0 {
-                self.value += 1;
-                return;
-            }
-            let own_address = self.env().account_id();
-            flipper::traits::flipper::FlipperRef::increment_recursive_reentrant_builder(
-                &own_address,
-                num - 1,
-            )
-            .call_flags(CallFlags::default().set_allow_reentry(true))
-            .invoke();
-        }
-
-        #[ink(message)]
-        #[openbrush::modifiers(non_reentrant)]
-        fn increment_recursive(&mut self, num: u32) -> Result<(), ReentrancyGuardError> {
-            self.check_storage();
-
-            if num == 0 {
-                self.value += 1;
-                return Ok(());
-            }
-            let own_address = self.env().account_id();
-            flipper::traits::flipper::FlipperRef::increment_recursive_builder(
-                &own_address,
-                num - 1,
-            )
-            .call_flags(CallFlags::default().set_allow_reentry(true))
-            .invoke()?;
-            Ok(())
-        }
     }
 }
