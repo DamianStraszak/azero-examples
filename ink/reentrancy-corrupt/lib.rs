@@ -11,9 +11,9 @@ pub mod my_flipper_guard {
     #[ink(storage)]
     #[derive(Default, Storage)]
     pub struct MyFlipper {
+        value: u32,
         #[storage_field]
         guard: reentrancy_guard::Data,
-        value: u32,
     }
 
     impl MyFlipper {
