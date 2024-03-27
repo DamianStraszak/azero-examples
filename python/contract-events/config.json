@@ -1,0 +1,62 @@
+{
+    "ws_endpoint": "wss://ws.test.azero.dev",
+    "metadata_dir": "contract_metadata",
+    "contracts": {
+        "5FmVtQGGUDVSpqYVkU3zLBQProQ4hHPjGQjUahxCYLJJvjfK": {
+            "name": "router"
+        },
+        "5EFDb7mKbougLtr5dnwd5KDfZ3wK55JPGPLiryKq4uRMPR46": {
+            "name": "wazero"
+        },
+        "5FTJdEQpHfUzXL3m2EFrSCwDF4qd6vuhYmfv3ZiLnSds6QbT": {
+            "name": "factory"
+        },
+        "5CPvHPDGGf4pxAxmMKV3KcMrp2zvtM2whgZ4fY3ni11qL27p": {
+            "name": "pair-1"
+        },
+        "5HQMZtqtWvsvZRC5rskPcQueZ7L35m8bG2EXWDSwtndJJBcp": {
+            "name": "pair-2",
+            "metadata_override": "pair_contract.contract"
+        },
+        "5CVGYujZnkBvNsUypdMuEYT2qRzFWhZHufteSfYguQMLkaE3": {
+            "name": "token-1",
+            "metadata_override": "psp22.contract"
+        },
+        "5FDkUXLExhgFT92UQvMQVG8H4Z4Ku4Mx9heUYpchxZMdY7LD": {
+            "name": "token-2",
+            "metadata_override": "psp22.contract"
+        },
+        "5DgnLZDNJ2bN4AcG4PzGMDdpL5ukd1kttmuMjXYNCG91vCkX": {
+            "name": "token-3",
+            "metadata_override": "psp22.contract"
+        },
+        "5GkV8efVcUhZ2PRkP6bNzJ9ATVh32uJMY89zMiK5rkA49yfU": {
+            "name": "token-4",
+            "metadata_override": "psp22.contract"
+        },
+        "5F84uFXvpEn4n6fAyRbP6mg32YHy8R4KEokZfFMW1svNTmbZ": {
+            "name": "token-5",
+            "metadata_override": "psp22.contract"
+        },
+        "5DuyRY19RZsxnyffwKRSox8rj5VUHf49fHLjUcZpfnwFrYGZ": {
+            "name": "token-6",
+            "metadata_override": "psp22.contract"
+        },
+        "5E3bkdogtK4ro2vC5vKP7QDJRzw38kHqXp5p5BiurQ9hBSbF": {
+            "name": "token-7",
+            "metadata_override": "psp22.contract"
+        },
+        "5CnV23shYarqBGZVmzuCxJvbd2TwxvQsjgAxoeGnhu2Zkxkp": {
+            "name": "token-8",
+            "metadata_override": "psp22.contract"
+        },
+        "5D5W2iUTvWs3mVSLDCdnNU3pTJyUHpiCeTEp9td4Hk3jwPqt": {
+            "name": "token-9",
+            "metadata_override": "psp22.contract"
+        },
+        "5H8UXMbPdVTCbsYQWBGuVj4k6XDo75wqQ8QdeRbwziQYcTdc": {
+            "name": "token-10",
+            "metadata_override": "psp22.contract"
+        }
+    }
+}
