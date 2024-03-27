@@ -6,7 +6,7 @@
 1. Install python dependencies `pip install -r requirements.txt`
 2. Run `python get_events_block_range.py` to print events from the example contracts configured in `config.json`.
 3. Run `python subscribe_events.py` to subscribe to events in on-going blocks.
-4. You can experiment with setting the `simplified` flag to `True` in this piece of code:
+4. You can experiment with setting the `simplified` flag to `False` in this piece of code:
 `tracker.get_contract_events_in_block(block_hash, simplified=True)`
 
 
