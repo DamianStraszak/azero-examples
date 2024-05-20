@@ -137,6 +137,18 @@ def load_contract_list(contract_list_config_file):
     return (chain, tracked_contracts, metadata_dir)
 
 
+def is_hex_string(s):
+    # Check for the '0x' prefix
+    if s.startswith('0x'):
+        # Remove the prefix
+        hex_part = s[2:]
+        # Check if the remaining characters are all hexadecimal digits
+        return all(c in '0123456789abcdefABCDEF' for c in hex_part)
+    return False
+
+
+
+
 class ContractTracker:
     def __init__(self, config_file):
         (chain, tracked_contracts, metadata_dir) = load_contract_list(config_file)
@@ -158,6 +170,8 @@ class ContractTracker:
             if module == 'Contracts' and event_id == 'ContractEmitted':
                 emitter = e['event']['attributes']['contract']
                 data = e['event']['attributes']['data']
+                if not is_hex_string(data):
+                    data = "0x"+(e['event']['attributes']['data'].encode().hex())
                 tracked = self.tracked_contracts.get(emitter, None)
                 if tracked is None:
                     continue
