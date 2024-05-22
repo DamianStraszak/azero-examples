@@ -1,0 +1,720 @@
+{
+  "source": {
+    "hash": "0xbd74aa2fdaaae097cd8599c4491cf8e4d80226350b7d96d907560329b6684e1d",
+    "language": "ink! 4.3.0",
+    "compiler": "rustc 1.75.0",
+    "build_info": {
+      "build_mode": "Release",
+      "cargo_contract_version": "3.2.0",
+      "rust_toolchain": "stable-x86_64-unknown-linux-gnu",
+      "wasm_opt_settings": {
+        "keep_debug_symbols": false,
+        "optimization_passes": "Z"
+      }
+    }
+  },
+  "contract": {
+    "name": "contract",
+    "version": "0.0.1",
+    "authors": [
+      "Damian Straszak"
+    ]
+  },
+  "spec": {
+    "constructors": [
+      {
+        "args": [],
+        "default": false,
+        "docs": [],
+        "label": "new",
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink_primitives",
+            "ConstructorResult"
+          ],
+          "type": 5
+        },
+        "selector": "0x9bae9d5e"
+      }
+    ],
+    "docs": [],
+    "environment": {
+      "accountId": {
+        "displayName": [
+          "AccountId"
+        ],
+        "type": 2
+      },
+      "balance": {
+        "displayName": [
+          "Balance"
+        ],
+        "type": 1
+      },
+      "blockNumber": {
+        "displayName": [
+          "BlockNumber"
+        ],
+        "type": 0
+      },
+      "chainExtension": {
+        "displayName": [
+          "ChainExtension"
+        ],
+        "type": 14
+      },
+      "hash": {
+        "displayName": [
+          "Hash"
+        ],
+        "type": 12
+      },
+      "maxEventTopics": 4,
+      "timestamp": {
+        "displayName": [
+          "Timestamp"
+        ],
+        "type": 13
+      }
+    },
+    "events": [
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": false,
+            "label": "token_in",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 2
+            }
+          },
+          {
+            "docs": [],
+            "indexed": false,
+            "label": "token_out",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 2
+            }
+          },
+          {
+            "docs": [],
+            "indexed": false,
+            "label": "amount_in",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 1
+            }
+          },
+          {
+            "docs": [],
+            "indexed": false,
+            "label": "amount_out",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 1
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "who",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 2
+            }
+          }
+        ],
+        "docs": [],
+        "label": "Swapped"
+      }
+    ],
+    "lang_error": {
+      "displayName": [
+        "ink",
+        "LangError"
+      ],
+      "type": 7
+    },
+    "messages": [
+      {
+        "args": [
+          {
+            "label": "token_0",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 2
+            }
+          },
+          {
+            "label": "balance_0",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 1
+            }
+          },
+          {
+            "label": "token_1",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 2
+            }
+          },
+          {
+            "label": "balance_1",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 1
+            }
+          },
+          {
+            "label": "fee",
+            "type": {
+              "displayName": [
+                "u32"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "new_pool",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 8
+        },
+        "selector": "0x2393fe3a"
+      },
+      {
+        "args": [
+          {
+            "label": "pool_index",
+            "type": {
+              "displayName": [
+                "u32"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "label": "balance_0",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 1
+            }
+          },
+          {
+            "label": "balance_1",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 1
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "provide_liquidity",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 8
+        },
+        "selector": "0xff93e568"
+      },
+      {
+        "args": [
+          {
+            "label": "token_in",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 2
+            }
+          },
+          {
+            "label": "token_out",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 2
+            }
+          },
+          {
+            "label": "amount_in",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 1
+            }
+          },
+          {
+            "label": "min_amount_out",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 1
+            }
+          },
+          {
+            "label": "pools",
+            "type": {
+              "displayName": [
+                "Vec"
+              ],
+              "type": 11
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "swap",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 8
+        },
+        "selector": "0x11004fa6"
+      }
+    ]
+  },
+  "storage": {
+    "root": {
+      "layout": {
+        "struct": {
+          "fields": [
+            {
+              "layout": {
+                "leaf": {
+                  "key": "0x00000000",
+                  "ty": 0
+                }
+              },
+              "name": "pool_counter"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "struct": {
+                      "fields": [
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xc8a69d1c",
+                              "ty": 0
+                            }
+                          },
+                          "name": "fee"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xc8a69d1c",
+                              "ty": 1
+                            }
+                          },
+                          "name": "total_shares"
+                        },
+                        {
+                          "layout": {
+                            "array": {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0xc8a69d1c",
+                                  "ty": 2
+                                }
+                              },
+                              "len": 2,
+                              "offset": "0xc8a69d1c"
+                            }
+                          },
+                          "name": "tokens"
+                        },
+                        {
+                          "layout": {
+                            "array": {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0xc8a69d1c",
+                                  "ty": 1
+                                }
+                              },
+                              "len": 2,
+                              "offset": "0xc8a69d1c"
+                            }
+                          },
+                          "name": "balances"
+                        }
+                      ],
+                      "name": "Pool"
+                    }
+                  },
+                  "root_key": "0xc8a69d1c"
+                }
+              },
+              "name": "pools"
+            }
+          ],
+          "name": "Contract"
+        }
+      },
+      "root_key": "0x00000000"
+    }
+  },
+  "types": [
+    {
+      "id": 0,
+      "type": {
+        "def": {
+          "primitive": "u32"
+        }
+      }
+    },
+    {
+      "id": 1,
+      "type": {
+        "def": {
+          "primitive": "u128"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "type": 3,
+                "typeName": "[u8; 32]"
+              }
+            ]
+          }
+        },
+        "path": [
+          "ink_primitives",
+          "types",
+          "AccountId"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": {
+        "def": {
+          "array": {
+            "len": 32,
+            "type": 4
+          }
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": {
+        "def": {
+          "primitive": "u8"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 6
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 7
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 6
+          },
+          {
+            "name": "E",
+            "type": 7
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": {
+        "def": {
+          "tuple": []
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 1,
+                "name": "CouldNotReadInput"
+              }
+            ]
+          }
+        },
+        "path": [
+          "ink_primitives",
+          "LangError"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 9
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 7
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 9
+          },
+          {
+            "name": "E",
+            "type": 7
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 6
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 10
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 6
+          },
+          {
+            "name": "E",
+            "type": 10
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "NotEnoughBalance"
+              },
+              {
+                "index": 1,
+                "name": "WrongIndex"
+              },
+              {
+                "index": 2,
+                "name": "Math"
+              },
+              {
+                "index": 3,
+                "name": "EqualTokens"
+              },
+              {
+                "index": 4,
+                "name": "PoolAlreadyExists"
+              },
+              {
+                "index": 5,
+                "name": "PSP22Error"
+              },
+              {
+                "index": 6,
+                "name": "WrongFee"
+              },
+              {
+                "index": 7,
+                "name": "WrongSwapArgs"
+              },
+              {
+                "index": 8,
+                "name": "ReceivedTooLowAmount"
+              }
+            ]
+          }
+        },
+        "path": [
+          "contract",
+          "abc",
+          "Error"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 0
+          }
+        }
+      }
+    },
+    {
+      "id": 12,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "type": 3,
+                "typeName": "[u8; 32]"
+              }
+            ]
+          }
+        },
+        "path": [
+          "ink_primitives",
+          "types",
+          "Hash"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": {
+        "def": {
+          "primitive": "u64"
+        }
+      }
+    },
+    {
+      "id": 14,
+      "type": {
+        "def": {
+          "variant": {}
+        },
+        "path": [
+          "ink_env",
+          "types",
+          "NoChainExtension"
+        ]
+      }
+    }
+  ],
+  "version": "4"
+}
